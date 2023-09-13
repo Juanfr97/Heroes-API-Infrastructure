@@ -4,5 +4,7 @@ variable "DO_TOKEN" {
 variable "CERT_MANAGER_EMAIL" {
   type = string
 }
-  
 
+variable "API_HOST" {
+  type = string
+}

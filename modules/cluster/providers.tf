@@ -1,4 +1,3 @@
-// Definición del Proveedor Cloud
 terraform {
   required_providers {
     digitalocean = {

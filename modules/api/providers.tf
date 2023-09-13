@@ -1,15 +1,12 @@
 terraform {
   required_providers {
-    digitalocean = {
-      source  = "digitalocean/digitalocean"
-      version = "~> 2.0"
+    kubectl = {
+      source  = "gavinbunney/kubectl"
+      version = "1.13.1"
     }
   }
 }
 
-provider "digitalocean" {
-  token = var.DO_TOKEN
-}
 
 provider "kubernetes" {
   host = var.cluster_endpoint
@@ -24,4 +21,19 @@ provider "kubernetes" {
     args = ["kubernetes", "cluster", "kubeconfig", "exec-credential",
     "--version=v1beta1", var.cluster_id]
   }
+}
+
+provider "kubectl" {
+  host = var.cluster_endpoint
+  cluster_ca_certificate = base64decode(
+    var.cluster_ca_certificate
+  )
+  token = var.cluster_token
+  client_certificate = base64decode(
+    var.cluster_client_certificate
+  )
+  client_key = base64decode(
+    var.cluster_client_key
+  )
+  load_config_file = false
 }
