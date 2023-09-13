@@ -26,6 +26,11 @@ The only requirement to run this Terraform project is to have Terraform installe
 
 No additional software or tools are required for this project.
 
+## Image Attribution
+
+The image used for the API is from [Heroes API](https://hub.docker.com/r/juanfr97/heroes-api).
+
+
 ## Environment Variables
 
 Before running the Terraform project, make sure to set the following environment variables:
